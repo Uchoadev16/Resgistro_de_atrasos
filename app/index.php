@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro</title>
     <style>
-        /* Definindo a paleta de cores azul */
         :root {
             --azul-claro: #add8e6;
             --azul-mediano: #4682b4;
@@ -29,16 +28,19 @@
             margin-top: 20px;
         }
 
-        nav{
-            display: flexbox;
+        nav {
+            display: flex;
+
         }
+
         a {
             color: var(--azul-dark);
             text-decoration: none;
             font-size: 18px;
-            margin: 10px;
-            display: inline-block;
-            border: 1px black 
+            margin: 10px 50px 10px 130px;
+            border: 1px solid black;
+            border-radius: 24px;
+            padding: 10px;
         }
 
         a:hover {
@@ -99,7 +101,7 @@
         }
 
         .message.info {
-            color: #ff8c00;
+            color: rgb(226, 56, 56);
         }
     </style>
 </head>
@@ -149,7 +151,7 @@
         echo "<p class='message error'>ERRO ao registrar!</p>";
     }
     if (isset($_GET['nao_existe'])) {
-        echo "<p class='message info'>Aluno não existente!</p>";
+        echo "<p class='message info'>Aluno(a) não existente!</p>";
     }
     ?>
 </body>

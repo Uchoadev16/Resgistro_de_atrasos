@@ -1,5 +1,6 @@
 <?php
 
+//requerindo o arquivo model.php e estanciando a class model_usuario
 require_once('../models/model.php');
 $model = new model_usuario;
 /*Se existe um post registrar e não estiver vazío nomephp e não estiver vazío matriculaphp e não estiver vazío turmaphp e não estiver vazío diaphp e não estiver vazío horaphp*/
@@ -26,6 +27,7 @@ if (isset($_POST['registrar']) && !empty($_POST['nomephp']) && !empty($_POST['ma
             header('location:../index.php?nao_existe');
             exit();
     }
+    //Se existe um post registrar e não estiver vazío nomephp e não estiver vazío matriculaphp e não estiver vazío turmaphp
 } else if (isset($_POST['cadastrar']) && !empty($_POST['nomephp']) && !empty($_POST['matriculaphp']) && !empty($_POST['turmaphp'])) {
 
     $nome = $_POST['nomephp'];
