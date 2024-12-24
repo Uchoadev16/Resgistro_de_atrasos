@@ -2,7 +2,7 @@
 
 //criando constantes para com as informas do banco de dados
 define('HOST', 'localhost');
-define('DATABASE', 'registros');
+define('DATABASE', 'registro_de_atrasos');
 define('USER', 'root');
 define('PASSWORD', '');
 

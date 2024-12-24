@@ -22,19 +22,22 @@
 </head>
 
 <body>
-    <a href="index.php">Fazer registro</a><br>
+    <a href="../index.php">Fazer registro</a><br>
+    <a href="inserir.php">Cadastrar aluno</a><br>
     <a href="alunos.php">Ver lista de alunos</a><br>
     <a href="atrasos.php">Ver lista de atrasos</a><br>
 
     <h1>Total de faltas de cada aluno</h1>
+
+    <a href="./PDFs/total_faltas_pdf.php">Baixar PDF</a>
     <?php
 
     //requerindo o arquivo controller_usuario.php
-    require_once('../controllers/controller_usuario.php');
+    require_once('../models/model.php');
 
     //fazendo a estanciação da class controller_usuario e chamando a função cotroller_list_faltas
-    $controller_list_faltas = new controller_usuario;
-    $fetch_assoc = $controller_list_faltas->controller_list_faltas();
+    $controller_list_faltas = new model_usuario;
+    $fetch_assoc = $controller_list_faltas->list_faltas();
     ?>
 
     <table>

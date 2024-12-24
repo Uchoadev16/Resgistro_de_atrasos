@@ -22,18 +22,20 @@
 </head>
 
 <body>
-    <a href="index.php">Fazer registro</a><br>
+    <a href="../index.php">Fazer registro</a><br>
+    <a href="inserir.php">Cadastrar aluno</a><br>
     <a href="atrasos.php">Ver lista de atraso</a><br>
     <a href="Total_Faltas.php">Mostrar total de faltas</a><br>
 
     <h1>Lista de alunos</h1>
+    <a href="./PDFs/alunos_pdf.php">Baixar PDF</a>
     <?php
 
     //requerindo o arquivo controller_usuario.php
-    require_once('../controllers/controller_usuario.php');
+    require_once('../models/model.php');
 
     //fazendo a estanciação da class controller_usuario e chamando a função list_aluno
-    $controller_list_aluno = new controller_usuario;
+    $controller_list_aluno = new model_usuario;
     $fetch_assoc = $controller_list_aluno->list_aluno();
     ?>
 
@@ -42,7 +44,6 @@
             <td>id</td>
             <td>Nome</td>
             <td>Matrícula</td>
-            <td>CPF</td>
         </tr>
 
         <?php //usando o foreach para puxar os dados do banco de dados
@@ -52,7 +53,6 @@
                 <td><?= $value['id'] ?></td>
                 <td><?= $value['nome'] ?></td>
                 <td><?= $value['matricula'] ?></td>
-                <td><?= $value['CPF'] ?></td>
             </tr>
         <?php } ?>
     </table>

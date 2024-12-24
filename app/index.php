@@ -5,20 +5,120 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro</title>
+    <style>
+        /* Definindo a paleta de cores azul */
+        :root {
+            --azul-claro: #add8e6;
+            --azul-mediano: #4682b4;
+            --azul-escuro: #1e3a5f;
+            --azul-dark: #003366;
+            --branco: #ffffff;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: var(--azul-claro);
+            color: var(--azul-escuro);
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            color: var(--azul-dark);
+            margin-top: 20px;
+        }
+
+        nav{
+            display: flexbox;
+        }
+        a {
+            color: var(--azul-dark);
+            text-decoration: none;
+            font-size: 18px;
+            margin: 10px;
+            display: inline-block;
+            border: 1px black 
+        }
+
+        a:hover {
+            color: var(--azul-mediano);
+        }
+
+        fieldset {
+            background-color: var(--branco);
+            border: 2px solid var(--azul-mediano);
+            padding: 20px;
+            margin: 20px auto;
+            width: 60%;
+            border-radius: 10px;
+        }
+
+        label {
+            font-size: 16px;
+            color: var(--azul-dark);
+            display: block;
+            margin-top: 10px;
+        }
+
+        input,
+        select,
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid var(--azul-mediano);
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: var(--azul-mediano);
+            color: var(--branco);
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: var(--azul-escuro);
+        }
+
+        .message {
+            text-align: center;
+            font-size: 18px;
+            margin-top: 20px;
+        }
+
+        .message.success {
+            color: green;
+        }
+
+        .message.error {
+            color: red;
+        }
+
+        .message.info {
+            color: #ff8c00;
+        }
+    </style>
 </head>
 
 <body>
     <h1>Registrar atraso</h1>
-    <a href="alunos.php">Mostrar lista de alunos</a><br>
-    <a href="atrasos.php">Mostrar lista de atrasos</a><br>
-    <a href="Total_Faltas.php">Mostrar total de faltas</a><br>
+    <nav>
+        <a href="views/alunos.php">Mostrar lista de alunos</a><br>
+        <a href="views/atrasos.php">Mostrar lista de atrasos</a><br>
+        <a href="views/Total_Faltas.php">Mostrar total de faltas</a><br>
+        <a href="views/inserir.php">Cadastrar aluno</a><br>
+    </nav>
     <fieldset>
         <form action="controllers/controller_main.php" method="post">
             <label for="nomeJS">Nome:</label>
             <input type="text" name="nomephp" id="nomejs"><br>
             <label for="matriculaJS">Matrícula:</label>
             <input type="number" name="matriculaphp" id="matriculajs"><br>
-            <label for="turmaJS">turma:</label>
+            <label for="turmaJS">Turma:</label>
             <select name="turmaphp" id="turmajs">
                 <option value="1ºA">1ºA</option>
                 <option value="1ºB">1ºB</option>
@@ -42,10 +142,14 @@
     </fieldset>
 
     <?php
-
-    if (isset($_GET['resposta'])) {
-        $resposta = $_GET['resposta'];
-        echo $resposta;
+    if (isset($_GET['certo'])) {
+        echo "<p class='message success'>Atraso registrado com sucesso!</p>";
+    }
+    if (isset($_GET['erro'])) {
+        echo "<p class='message error'>ERRO ao registrar!</p>";
+    }
+    if (isset($_GET['nao_existe'])) {
+        echo "<p class='message info'>Aluno não existente!</p>";
     }
     ?>
 </body>
